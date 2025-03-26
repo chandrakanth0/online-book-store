@@ -31,6 +31,11 @@ public class BookService {
         return bookRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundExceptionClass("Book not found with ID: " + id));
     }
+    
+
+        public List<Book> searchBooksByTitle(String title) {
+            return bookRepository.findByTitleContainingIgnoreCase(title);
+        }
 
     //  Update a Book
     public Book updateBook(Long id, Book bookDetails) {

@@ -42,6 +42,11 @@ public class BookController {
         return ResponseEntity.ok(bookService.getBookById(id));
     }
 
+ // Search books by title (case-insensitive)
+    @GetMapping("/search")
+    public ResponseEntity<List<Book>> searchBooksByTitle(@RequestParam String title) {
+        return ResponseEntity.ok(bookService.searchBooksByTitle(title));
+    }
 
     //Update book details
 
